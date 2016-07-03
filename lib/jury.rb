@@ -31,6 +31,7 @@ class Jury
    #from: http://stackoverflow.com/questions/6040494/how-to-find-the-key-of-the-largest-value-hash
    winner_name = final_votes.max_by{ |k,v| v }[0]
    puts "Winner  is #{winner_name}!!!"
+   winner_name
  end
 
 
