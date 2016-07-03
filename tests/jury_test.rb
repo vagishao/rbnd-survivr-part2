@@ -5,18 +5,17 @@ require_relative "../lib/jury"
 class TestJury < Minitest::Test
 
   def setup
-    @members = %w(carlos walter aparna trinh diego juliana poornima)
-    @members.map!{ |member| Contestant.new(member) }
+    @jury_members = %w(carlos walter aparna trinh diego juliana poornima)
+    @jury_members.map!{ |member| Contestant.new(member) }
     @finalists = %w(orit colt)
     @finalists.map!{ |member| Contestant.new(member) }
     @jury = Jury.new
 
-    @jury_members = @members
   end
 
   def test_add_members_to_jury
-    @jury.add_member(@members.first)
-    assert_includes @jury.members, @members.first
+    @jury.add_member(@jury_members.first)
+    assert_includes @jury.members, @jury_members.first
   end
 
   #=====Remember to uncomment one test method at a time.=====
