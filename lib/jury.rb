@@ -30,7 +30,7 @@ class Jury
  def announce_winner(final_votes)
    #from: http://stackoverflow.com/questions/6040494/how-to-find-the-key-of-the-largest-value-hash
    winner_name = final_votes.max_by{ |k,v| v }[0]
-   puts "Winner  is #{winner_name}!!!"
+   puts "Winner  is #{winner_name}!!!".green
    winner_name
  end
 
