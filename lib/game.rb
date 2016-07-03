@@ -23,7 +23,6 @@ class Game
 
   def merge(merged_tribe_name)
 
-    run_immunity_challenges
 
     merged_members = merge_remaining_members
 
@@ -37,6 +36,14 @@ class Game
     # merge all the remaining members of tribes and create a new tribe with given name
 
   end
+  def individual_immunity_challenge
+
+    merged_tribe = @tribes.first
+    merged_tribe.members[rand(merged_tribe.members.length)]
+
+  end
+
+
 
   def merge_remaining_members
     merged_members=[]
@@ -49,19 +56,18 @@ class Game
   end
 
 
-  def run_immunity_challenges
-    8.times do |i|
+  def run_immunity_challenges(no_of_eliminations)
+    eliminated_members = []
+
+    no_of_eliminations.times do |i|
       losing_tribe= immunity_challenge
       immune_member=losing_tribe.members[rand(losing_tribe.members.length)]
       eliminated_member= losing_tribe.tribal_council(immune: immune_member)
       losing_tribe.members.delete(eliminated_member)
+      eliminated_members<<eliminated_member
     end
+    eliminated_members
   end
 
-  def individual_immunity_challenge
 
-    merged_tribe = @tribes.first
-    merged_tribe.members[rand(merged_tribe.members.length)]
-
-  end
 end
