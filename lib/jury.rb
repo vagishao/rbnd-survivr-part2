@@ -12,10 +12,10 @@ class Jury
 
  def cast_votes(finalists)
   final_votes = Hash.new(0)
-  @members.each do |member|
-    vote = rand(2)
-    puts vote
-    voted_for = vote==0 ? finalists.first : finalists.last
+  @members.each do
+
+    voted_for = finalists.sample
+   puts voted_for
     final_votes[voted_for]+=1
   end
    final_votes

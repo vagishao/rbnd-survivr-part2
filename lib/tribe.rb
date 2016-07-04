@@ -16,9 +16,8 @@ class Tribe
   def tribal_council(options)
     immune_member = options[:immune]
 
-    while (member = @members[rand(@members.length)]) == immune_member
+    # while (member = @members[rand(@members.length)]) == immune_member
+    @members.reject { |member| member == immune_member }.sample
 
-    end
-    member
   end
 end

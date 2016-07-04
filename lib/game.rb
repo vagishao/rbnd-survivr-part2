@@ -14,7 +14,7 @@ class Game
   end
 
   def immunity_challenge
-    @tribes[rand(@tribes.length)]
+    @tribes.sample
   end
 
   def clear_tribes
@@ -39,7 +39,7 @@ class Game
   def individual_immunity_challenge
 
     merged_tribe = @tribes.first
-    merged_tribe.members[rand(merged_tribe.members.length)]
+    merged_tribe.members.sample
 
   end
 
@@ -61,7 +61,7 @@ class Game
 
     no_of_eliminations.times do |i|
       losing_tribe= immunity_challenge
-      immune_member=losing_tribe.members[rand(losing_tribe.members.length)]
+      immune_member=losing_tribe.members.sample
       eliminated_member= losing_tribe.tribal_council(immune: immune_member)
       losing_tribe.members.delete(eliminated_member)
       eliminated_members<<eliminated_member
