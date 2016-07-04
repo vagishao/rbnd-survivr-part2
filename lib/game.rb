@@ -2,15 +2,13 @@ class Game
 
   attr_reader :tribes
 
-  def initialize(tribe1,tribe2)
-    @tribes=[]
-    @tribes<<tribe1
-    @tribes<<tribe2
+  def initialize(*tribes)
+    @tribes=tribes
 
   end
 
-  def add_tribe(tribe_three)
-    @tribes<<tribe_three
+  def add_tribe(tribe)
+    @tribes<<tribe
   end
 
   def immunity_challenge
