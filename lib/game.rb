@@ -54,14 +54,26 @@ class Game
   end
 
 
-  def run_immunity_challenges(no_of_eliminations)
+  def run_phase1_immunity_challenge(no_of_eliminations)
     eliminated_members = []
 
-    no_of_eliminations.times do |i|
+    no_of_eliminations.times do
       losing_tribe= immunity_challenge
       immune_member=losing_tribe.members.sample
       eliminated_member= losing_tribe.tribal_council(immune: immune_member)
       losing_tribe.members.delete(eliminated_member)
+      eliminated_members<<eliminated_member
+    end
+    eliminated_members
+  end
+
+
+  def run_individual_immunity_challenges(no_of_eliminations)
+    eliminated_members = []
+    no_of_eliminations.times do
+      immune_member = individual_immunity_challenge
+      eliminated_member= tribes.first.tribal_council(immune: immune_member)
+      tribes.first.members.delete(eliminated_member)
       eliminated_members<<eliminated_member
     end
     eliminated_members

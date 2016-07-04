@@ -18,11 +18,11 @@ class Jury
   finalists.each { |finalist| final_votes[finalist]=0 }
 
 
-
-  @members.each do
+  @members.each do |member|
 
    voted_for = finalists.sample
-   puts voted_for
+
+   puts "#{member} voted for #{voted_for.name}"
     final_votes[voted_for]+=1
   end
    final_votes

@@ -18,24 +18,26 @@ require_relative "jury"
 #=========================================================
 
 
+NO_OF_ELIMINATIONS_STAGE1 = 8
+NO_OF_ELIMINATIONS_STAGE2 = 3
+NO_OF_ELIMINATIONS_STAGE3 = 7
+
+
 #This is where you will write your code for the three phases
 def phase_one
-  no_of_eliminations = 8
- @borneo.run_immunity_challenges(no_of_eliminations).length
-
-
+  @borneo.run_phase1_immunity_challenge(NO_OF_ELIMINATIONS_STAGE1).length
 
 end
 
 def phase_two
-  no_of_eliminations = 3
-  @borneo.run_immunity_challenges(no_of_eliminations).length
-
+  eliminated_members = @borneo.run_individual_immunity_challenges(NO_OF_ELIMINATIONS_STAGE2)
+  eliminated_members.length
 end
 
 def phase_three
-  no_of_eliminations = 7
-  @jury.members =  @borneo.run_immunity_challenges(no_of_eliminations)
+
+  eliminated_members = @borneo.run_individual_immunity_challenges(NO_OF_ELIMINATIONS_STAGE3)
+  @jury.members = eliminated_members
   @jury.members.length
 
 end
