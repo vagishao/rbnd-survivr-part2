@@ -11,10 +11,17 @@ class Jury
   end
 
  def cast_votes(finalists)
-  final_votes = Hash.new(0)
+
+  final_votes = {}
+  # add both finalists to hash first, to account for the case
+  # when all votes go to a single finalist
+  finalists.each { |finalist| final_votes[finalist]=0 }
+
+
+
   @members.each do
 
-    voted_for = finalists.sample
+   voted_for = finalists.sample
    puts voted_for
     final_votes[voted_for]+=1
   end
