@@ -3,8 +3,9 @@ class Game
   attr_reader :tribes
 
   def initialize(*tribes)
-    @tribes=tribes
 
+    #in case only tribe is passed
+    @tribes = ([] << tribes).flatten!
   end
 
   def add_tribe(tribe)
