@@ -59,8 +59,7 @@ class Game
 
     no_of_eliminations.times do
       losing_tribe= immunity_challenge
-      immune_member=losing_tribe.members.sample
-      eliminated_member= losing_tribe.tribal_council(immune: immune_member)
+      eliminated_member= losing_tribe.tribal_council(immune: nil)
       losing_tribe.members.delete(eliminated_member)
       eliminated_members<<eliminated_member
     end
